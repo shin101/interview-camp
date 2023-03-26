@@ -1,5 +1,20 @@
 # Given an array of numbers, replace each even number with twoof the same number. e.g, [1,2,5,6,8, , , ,] -> [1,2,2,5,6,6,8,8].Assume that the array has the exact amount of space to accommodate the result.
 
+
+
+# def clone_even_numbers(lst):
+#     pass
+
+
+
+# print(clone_even_numbers([1,2,5,6,8,-1,-1,-1]))
+# # should output [1,2,2,5,6,6,8,8]
+
+
+
+
+
+
 def clone_even_numbers(lst):
     idx = get_last_num(lst);
     end = len(lst)-1 # should be 7 for this example
