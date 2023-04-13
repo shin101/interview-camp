@@ -4,9 +4,8 @@
 
 def findInsertionIndex(arr, target):
     pass
- 
 
-
+print(findInsertionIndex([1,2,3,3,3,5,6,8], 3)) # should return 5
 print(findInsertionIndex([1,2,4,5,6,8], 3)) # should return 2
 print(findInsertionIndex([1,2,4,5,6,8], 0)) # should return 0
 print(findInsertionIndex([1,2,4,5,6,8], 4)) # should return 3
