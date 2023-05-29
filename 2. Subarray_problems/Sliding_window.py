@@ -10,44 +10,87 @@
 # Return any one of them.
 # Do we have only alphabets? No, there can be any character
 
-
-
-
-def longestStr(str) :
-    if len(str)==0 or not str:
-        return None
-    result = [0,0]
-    longest = 0 
+def longestStr(string):
     seen = set()
     start = 0
-    end = 0
-    idx = 0
+    curr_len = 0
+    max_len = 0
+    output = [0,0]
 
-    while start <= len(str):
-        if end >= len(str):
-            break
-        if str[idx] not in seen:
-            seen.add(str[idx])
-            end += 1
-            idx += 1
-        elif str[idx] in seen:
-            start += 1
-        
-
-    return result, longest
-
-
-#     for idx in range(len(str)):
-#         while str[idx] in str_set:
-#             str_set.remove(str[start])
-#             start += 1
-#         str_set.add(str[idx])
-#         result = max(result, idx-start+1)
-
+    if not string:
+        return None
     
+    for idx in range(len(string)):
+        if string[idx] not in seen:
+            seen.add(string[idx])
+            curr_len = idx - start + 1
+            if curr_len > max_len:
+                max_len = curr_len
+                output = [start, idx]
+        else:
+            while string[idx] in seen:
+                seen.remove(string[start])
+                start += 1
+            seen.add(string[idx])
+    return output
 
 
 print(longestStr("whatwhywhere")) # should return [2, 6]
+print(longestStr("whayhkjfd")) # should return [2, 8]
+
+# idx = 4
+# seen = what
+# seen = h
+# start = 1
+# output = [1,4]
+# seen = hatw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def longestStr(string):
+#     start = 0
+#     curr_len = 0
+#     max_len = 0
+#     seen = set()
+#     output = [0, 0]
+
+#     if not string:
+#         return None
+    
+#     for idx in range(len(string)):
+#         # Growing window
+#         if string[idx] not in seen:
+#             seen.add(string[idx])
+#             curr_len = idx - start + 1
+
+#             if curr_len > max_len:
+#                 output = [start, idx]
+#                 max_len = curr_len
+
+#         # Shrinking window
+#         else:
+#             curr_char = string[idx]
+#             while curr_char in seen:
+#                 seen.remove(string[start])
+#                 start += 1
+#             seen.add(curr_char)
+
+# # whayhkjfd
+#     return output
+
 
 
 
