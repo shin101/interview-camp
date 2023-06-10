@@ -10,29 +10,54 @@
 # map.add(sum, i) if none of the if conditions are true
 
 
-def prefix_sum(input, target):
-    pass
+# def prefix_sum(input, target):
+#     curr_sum = 0
+#     cumulative_sum = {}
 
-print(prefix_sum([2,4,-2,1,-3,5,-3], 5)) # should return [0,3]
-# cumulative sum {2, 6, 4, 5, 2, 7, 4}
-print(prefix_sum([-1,2,2,-4,2,-1,4], 0))
-print(prefix_sum([2, 1, 3, -1, -3, 7, -3], 1))
+#     for idx,num in enumerate(input):
+#         curr_sum += num
+        
+#         if num == target:
+#             return [idx]
+#         if curr_sum == target:
+#             return [0,idx]
+
+#         if num in cumulative_sum:
+#             # print(cumulative_sum)
+#             return [cumulative_sum[num]+1, idx]
+        
+
+#         cumulative_sum[num] = idx
+
+#     return None
+
+
+# print(prefix_sum([2,4,-2,1,-3,5,-3], 5)) # should return [0,3]
+# # cumulative sum {2:0, 6:1, 4:2, 5:3, 2:4, 7:5, 4:6}
+# print(prefix_sum([-1,2,2,-4,2,-1,4], 0)) # should return [1,3]
+# print(prefix_sum([2, 1, 3, -1, -3, 7, -3], 1)) # should return None
 
 
 # ------------------------------------------------------------
 
 # my solution
 
-# def prefix_sum(input, target):
-#     dic = {} # same as cumulative sum
-#     # dic = {2:0, 6:1, 4:2, 5:3, ...} sum, idx
-#     sum = 0
+def prefix_sum(input, target):
+    dic = {} # same as cumulative sum
+    # dic = {2:0, 6:1, 4:2, 5:3, ...} sum, idx
+    sum = 0
 
-#     for idx, num in enumerate(input):
-#         sum += num
-#         if sum == target:
-#             return [0,idx]
-#         if sum in dic:
-#             return [dic[sum]+1, idx]
-#         dic[sum] = idx 
-#     return None
+    for idx, num in enumerate(input):
+        sum += num
+        if sum == target:
+            return [0,idx]
+        if sum in dic:
+            return [dic[sum]+1, idx]
+        dic[sum] = idx 
+    return None
+
+print(prefix_sum([2,4,-2,1,-3,5,-3], 5)) # should return [0,3]
+# cumulative sum {2:0, 6:1, 4:2, 5:3, 2:4, 7:5, 4:6}
+print(prefix_sum([-1,2,2,-4,2,-1,4], 0)) # should return [1,3]
+print(prefix_sum([2, 1, 3, -1, -3, 7, -3], 1)) # should return None
+# cumulative sum {2:0, 3:1, 6:2, 5:3, 2:4, 9:5, 6:6}
