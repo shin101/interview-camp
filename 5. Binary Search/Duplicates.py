@@ -3,7 +3,26 @@
 
 
 def findInsertionIndex(arr, target):
-    pass
+    if arr[-1]<target:
+        return len(arr)
+    if target == 0 :
+        return 0
+    low = 0
+    high = len(arr)-1
+
+    while low <= high:
+        mid = low+((high-low)>>1)
+        if arr[mid] <= target:
+            if arr[mid+1] and arr[mid+1] > target:
+                return mid+1
+            low = mid + 1
+        if arr[mid] > target:
+            if arr[mid-1] < target:
+                return mid
+            high = mid - 1
+
+    return -1
+
 
 print(findInsertionIndex([1,2,3,3,3,5,6,8], 3)) # should return 5
 print(findInsertionIndex([1,2,4,5,6,8], 3)) # should return 2
