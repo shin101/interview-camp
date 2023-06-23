@@ -55,6 +55,48 @@
 
 # Assume there are no duplicates. Also, assume that A[-1] and A[length] are negative infinity (-∞). So A[0] can be a peak if A[1] < A[0].
 
-# A = [1,3,4,5,2] => Peak = 5
-# A = [5,3,1] => Peak = 5
-# A = [1,3,5] => Peak = 5
+
+
+def findPeak(arr):
+    low = 0
+    high = len(arr)-1
+    while low < high:
+        mid = low + ((high-low) >> 1)
+        if arr[mid] > arr[mid-1]:
+            if arr[mid] > arr[mid+1]:
+                return arr[mid]
+            low = mid + 1
+        if arr[mid] < arr[mid+1]:
+            high = mid - 1
+        return arr[low]
+    
+
+print(findPeak([1,3,4,5,2])) # peak = 5
+print(findPeak([5,3,1])) # peak = 5
+print(findPeak([1,3,5])) # peak = 5
+print(findPeak([2, 5, 3, 9, 7, 6, 8, 4])) # peak = 9
+
+# my solution
+
+# def findPeak(arr):
+#     low, high = 0, len(arr)-1
+#     while low < high:
+#         mid = low + ((high-low)>>1)
+#         if arr[mid] < arr[mid+1]:
+#             low = mid+1
+#         else:
+#             high = mid
+#     return arr[low]
+
+# leetcode solution
+# class Solution:
+#     def findPeakElement(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         l, r = 0, n - 1
+#         while l < r:
+#             mid = (l + r) >> 1
+#             if nums[mid] < nums[mid + 1]:
+#                 l =  mid + 1
+#             else:
+#                 r = mid 
+#         return l
