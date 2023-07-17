@@ -14,7 +14,27 @@ class Node():
         self.next = None
 
 def oddEvenList(head):
-    pass
+    if head == None or head.next == None or head.next.next == None:
+        return head
+    
+    odd = curr = head
+    even = evenhead = odd.next
+    idx = 1
+
+    while curr:
+        if idx > 2 and idx%2 !=0:
+            odd.next = curr
+            odd = odd.next
+        elif idx >2 and idx%2 ==0 :
+            even.next = curr
+            even = even.next
+        curr = curr.next
+        idx +=1
+    
+    even.next = None
+    odd.next = evenhead
+    
+    return head
 
 # Test case
 def create_linked_list(values):
@@ -27,8 +47,8 @@ def create_linked_list(values):
     for value in values[1:]:
         curr.next = Node(value)
         curr = curr.next
-
     return head
+
 
 
 def get_linked_list_values(head):
@@ -45,14 +65,16 @@ head = create_linked_list([1,2,3,4,5])
 result = oddEvenList(head)
 result_values = get_linked_list_values(result)
 print(result_values)
+
+
 # ----------------------------------------------------------
                     # WORKING SOLUTION
 # ----------------------------------------------------------
 
-class Node():
-    def __init__(self,value):
-        self.value = value
-        self.next = None
+# class Node():
+#     def __init__(self,value):
+#         self.value = value
+#         self.next = None
 
 # def oddEvenList(head):
 #     if head == None or head.next == None or head.next.next == None:
