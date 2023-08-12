@@ -1,45 +1,22 @@
-# Coin Change Problem: Given a set of coin denominations, print out the different ways you can make a target amount. You can use as many coins of each denomination as you like.
+# Coin Change Problem: Given a set of coin denominations, print out the different ways you can make a target amount. You can use as many coins of each denomination as you like. For example: If coins are [1,2,5] and the target is 5, output will be: [1,1,1,1,1], [1,1,1,2], [1,2,2], [5]
 
 # Variant of this problem: If you had to print just the count (instead of the actual combinations), there is a more efficient solution in the Dynamic Programming Section. This solution is also acceptable though.
 
-def print_coins():
+# HINT : 
+# 1. determine termination cases
+# 2. find candidates
+# 3. place them into buffer index
+# 4. recurse to next index
+
+def print_coins(arr, buffer, nextIdx, bufferIdx):
     pass
 
 
 print(print_coins([1,2,5],5)) 
 # output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5]
 
-
-
-
-
-
-# def print_coins(arr, target):
-#     if len(arr)==0:
-#         return None
-#     print_coins_helper(arr, target, 0, [], 0)
-
-
-# def print_coins_helper(arr, target, start_index, buffer, sum):
-#     if sum > target:
-#         return 
-#     if sum == target:
-#         print(buffer)
-#         return
-    
-#     for idx in range(start_index, len(arr)):
-#         buffer.append(arr[idx])
-#         print_coins_helper(arr, target, idx, buffer, sum+arr[idx])
-#         buffer.pop()
-
-
-print(print_coins([1,2,5],5)) 
-# output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5]
-
-
-
-# ------------------------------------------------------------------------------
-# Working solution
+# -----------------------------------------------------------------------------
+# Working solution - from Interview Camp
 
 
 # def printCoins(coins, target):
