@@ -12,7 +12,28 @@ class Node():
 
 
 def isPalindrome(head):
-    pass
+    fast, slow = head, head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    prev = None 
+    while slow: 
+        temp = slow.next
+        slow.next = prev
+        prev = slow
+        slow = temp 
+    
+    left_pointer = head
+    right_pointer = prev
+
+    while right_pointer:
+        if left_pointer.value!=right_pointer.value:
+            return False
+        left_pointer = left_pointer.next
+        right_pointer = right_pointer.next
+    return True
+
 
 
 a = Node('A')

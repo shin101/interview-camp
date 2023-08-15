@@ -8,15 +8,41 @@
 # 3. place them into buffer index
 # 4. recurse to next index
 
-def print_coins(arr, buffer, nextIdx, bufferIdx):
+def print_coins(coins, target):
     pass
 
 
+
 print(print_coins([1,2,5],5)) 
-# output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5]
+# output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5] for recursive, 1 for DP
 
 # -----------------------------------------------------------------------------
-# Working solution - from Interview Camp
+# Working solution 1 - DP Solution
+
+# def print_coins(target, coins, known_results):
+#     min_coins = target
+
+#     # base case
+#     if target in coins:
+#         known_results[target] = 1
+#         return 1 
+#     #return a known result if its greater than 1 
+#     elif known_results[target] > 0 :
+#         return known_results[target]
+#     else:
+#         # for every coin value that is <= target  
+#         for val in [coin for coin in coins if coin<=target]:
+#             num_coins = 1 + print_coins(target-val, coins, known_results)
+#             if num_coins < min_coins :
+#                 min_coins = num_coins
+#                 known_results[target] = min_coins
+#     return min_coins
+
+# print_coins(74, [1,5,10,25], [0]*(target+1))
+# should return 8
+
+# -----------------------------------------------------------------------------
+# Working solution 2 - from Interview Camp, Recursive Solution
 
 
 # def printCoins(coins, target):
@@ -40,4 +66,4 @@ print(print_coins([1,2,5],5))
 #         buffer.pop()
 
 # print(printCoins([1,2,5],5)) 
-# output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5]
+# output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5] for recursive, 1 for DP
