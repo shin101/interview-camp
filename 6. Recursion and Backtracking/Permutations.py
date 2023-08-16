@@ -8,10 +8,12 @@
 # 3. place them into buffer index
 # 4. recurse to next index
 
-def print_coins(coins, target):
+def print_coins(target, coins, known_results):
     pass
 
 
+print_coins(74, [1,5,10,25], [0]*(target+1))
+# should return 8
 
 print(print_coins([1,2,5],5)) 
 # output will be [1,1,1,1,1], [1,1,1,2], [1,2,2], [5] for recursive, 1 for DP
