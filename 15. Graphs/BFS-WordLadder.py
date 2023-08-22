@@ -6,8 +6,8 @@
 # Result: 4 (CAB -> COB -> COG -> DOG)
 from collections import collections, deque, defaultdict
 
-# def wordLadder(beginWord, endWord, WordList):
-#     pass
+def wordLadder(beginWord, endWord, WordList):
+    pass
 
 
 
@@ -16,8 +16,6 @@ from collections import collections, deque, defaultdict
 # end_word = "cog"
 # word_dictionary = set(["hot", "dot", "dog", "lot", "log", "cog"])
 # print(wordLadder(start_word, end_word, word_dictionary))  # Output: 5
-
-
 
 # # SOLUTION 
 # def wordLadder(beginWord, endWord, wordList):
