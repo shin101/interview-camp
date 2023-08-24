@@ -1,13 +1,11 @@
 # Homework Problem 1 (Level: Medium)
 # Print a 2D array in Diagonal ZigZag order.
-# For example,Input:1 2 3 45 6 7 89 0 1 2
+# For example,Input:1 2 3 4 5 6 7 8 9 0 1 2
 # Output:1 2 5 9 6 3 4 7 0 1 8 2
+   
 
-
-# def diagonal_zigzag_print(matrix):
-#     pass
-
-
+def diagonal_zigzag_print(matrix):
+    pass
 
 
 

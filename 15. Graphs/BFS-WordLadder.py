@@ -6,10 +6,29 @@
 # Result: 4 (CAB -> COB -> COG -> DOG)
 from collections import collections, deque, defaultdict
 
+# def wordLadder(beginWord, endWord, WordList):
+#     # https://www.youtube.com/watch?v=EAcJgd4Xu5E
+#     # write a function to check if one char is different
+#     # create a graph using that function
+#     # bfs queue
+#     pass
+
 def wordLadder(beginWord, endWord, WordList):
-    pass
+    def onechar(s,t):
+        if s == t : 
+            return False
+        cnt = 0
+        for i in range(len(s)):
+            if s[i] != t[i]: cnt+=1
+        return cnt == 1
+    
+    graph = defaultdict(set)
+    for s in WordList+[beginWord]:
+        for t in WordList+[beginWord]:
+            if onechar(s,t):
+                graph[s].add(t)
 
-
+    q = deque([(beginWord, 0)])
 
 # # Test case
 # start_word = "hit"
@@ -17,7 +36,15 @@ def wordLadder(beginWord, endWord, WordList):
 # word_dictionary = set(["hot", "dot", "dog", "lot", "log", "cog"])
 # print(wordLadder(start_word, end_word, word_dictionary))  # Output: 5
 
-# # SOLUTION 
+
+# SOLUTION 1 
+# https://www.youtube.com/watch?v=EAcJgd4Xu5E
+
+
+
+
+
+# # SOLUTION 2
 # def wordLadder(beginWord, endWord, wordList):
 #     if endWord not in wordList:
 #         return 0
