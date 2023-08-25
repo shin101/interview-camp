@@ -2,12 +2,41 @@
 # Print a 2D array in Diagonal ZigZag order.
 # For example,Input:1 2 3 4 5 6 7 8 9 0 1 2
 # Output:1 2 5 9 6 3 4 7 0 1 8 2
-   
+
 
 def diagonal_zigzag_print(matrix):
-    pass
+    rows = len(matrix)
+    cols = len(matrix[0])
+    curr_col = curr_row = 0
+    res = []
+    going_up = True
 
 
+    while len(res) != cols * rows:
+        if going_up:
+            while curr_col < cols and curr_row >= 0:
+                res.append(matrix[curr_row][curr_col])
+                curr_row -= 1
+                curr_col += 1
+            if curr_col >= cols:
+                curr_row += 2
+                curr_col -= 1 
+            else:
+                curr_row += 1
+            going_up = False
+        else:
+            while curr_row < rows and curr_col >= 0:
+                res.append(matrix[curr_row][curr_col])
+                curr_row += 1
+                curr_col -= 1
+            if curr_row == rows:
+                curr_row -= 1
+                curr_col += 2
+            else:
+                curr_col += 1 
+            going_up = True
+
+    return res
 
 # -------- TEST CASE --------
 matrix = [
