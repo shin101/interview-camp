@@ -4,16 +4,43 @@
 
 # A = CAB, B = DOG
 # Result: 4 (CAB -> COB -> COG -> DOG)
-from collections import collections, deque, defaultdict
 
-# def wordLadder(beginWord, endWord, WordList):
-#     # write a function to check if one char is different
-#     # create a graph using that function
-#     # bfs queue
+from collections import deque
+#     # one char diff
+#     # create queue 
 
+def oneCharDiff(word1, word2):
+    cnt = 0
+    for letter1,letter2 in zip(word1,word2):
+        if letter1!=letter2:
+            cnt += 1
+    return cnt == 1
 
-def wordLadder(beginWord, endWord, WordList):
-    pass
+def wordLadder(beginWord, endWord, wordList):
+    if endWord not in wordList:
+        return 0
+    
+    queue = deque([(beginWord, 1)])
+    visited = set()
+
+    while queue:
+        word, depth = queue.popleft()
+        if word == endWord:
+            return depth
+        
+        visited.add(word)
+        
+        for next_word in wordList:
+            if next_word not in visited and oneCharDiff(word, next_word):
+                queue.append((next_word, depth+1))
+    
+    return 0
+
+# TEST CASE
+
+print(wordLadder("CAB", "DOG", ["CAB", "COB", "COG", "DOG"])) # should return 4
+# should return 5
+print(wordLadder("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
 
 # # Test case
 # start_word = "hit"
@@ -22,11 +49,44 @@ def wordLadder(beginWord, endWord, WordList):
 # print(wordLadder(start_word, end_word, word_dictionary))  # Output: 5
 
 
-# SOLUTION 1 
+
+# SOLUTION 1
+# from collections import deque
+# Function to check if two words differ by only one character
+# def is_one_letter_apart(word1, word2):
+#     diff_count = 0
+#     for c1, c2 in zip(word1, word2):
+#         if c1 != c2:
+#             diff_count += 1
+#             if diff_count > 1:
+#                 return False
+#     return diff_count == 1
+
+# Function to find the shortest transformation path length
+# def word_ladder_length(start, end, word_list):
+#     if end not in word_list:
+#         return 0
+    
+#     queue = deque([(start, 1)])  # Queue of words and their corresponding depths
+#     visited = set()
+
+#     while queue:
+#         word, depth = queue.popleft()
+
+#         if word == end:
+#             return depth
+        
+#         visited.add(word)
+        
+#         for next_word in word_list:
+#             if next_word not in visited and is_one_letter_apart(word, next_word):
+#                 queue.append((next_word, depth + 1))
+
+#     return 0  # No transformation path found
 
 
 
-# # SOLUTION 2
+# # SOLUTION  2
 # def wordLadder(beginWord, endWord, wordList):
 #     if endWord not in wordList:
 #         return 0
