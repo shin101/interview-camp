@@ -11,3 +11,20 @@
 # "i like mango tan go"
 # "i like man go tango"
 
+# def wordBreak(str, wordDict):
+#     pass
+
+
+# Test case
+
+print(wordBreak("leetcode", ["leet","code"])) # should return True
+print(wordBreak("applepenapple", ["apple","pen"])) # should return True
+print(wordBreak("catsandog",["cats","dog","sand","and","cat"] )) # should return False
+
+
+# Solution
+
+def wordBreak(str, wordDict):
+    pass
+
+
