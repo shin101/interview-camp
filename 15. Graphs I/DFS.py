@@ -14,10 +14,25 @@ class Node:
     self.val = val
     self.neighbors = neighbors if neighbors is not None else []
 
-def cloneGraph(node):
-  pass
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        #  hash map or list, for storing output
+        # DFS - recursion
 
+        newToOld = { } 
 
+        def dfs(node):
+            if node in newToOld:
+                return newToOld[node]
+        
+            copy = Node(node.val)
+            newToOld[node] = copy
+
+            # neighbors
+            for neighbor in node.neighbors:
+                copy.neighbors.append(dfs(neighbor))
+            return copy
+        return dfs(node) if node else None
 
   
 #     def cloneGraph(self, node: 'Node') -> 'Node':
