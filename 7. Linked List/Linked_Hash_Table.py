@@ -15,6 +15,8 @@
 # Input : s = "ADOBECODEBANC", t = "ABC"
 # Output : "BANC"
 
+# hard
+
 def minimum_window_substring(s, t):
     window, countT = {}, {}
     have, need = 0, len(t)

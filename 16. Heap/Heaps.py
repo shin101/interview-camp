@@ -5,8 +5,24 @@
 # two heaps - large with minheap, small with maxheap
 # heaps should be roughly same size
 
+import heapq
+class MedianFinder: 
+    def __init__(self):
+        self.small, self.large = [], []
+
+    def addNum(self, num):
+        pass
+
+    def findMedian(self):
+        pass
+
+
+
+
+
 
 # test case
+# test on leetcode
 
 # solution 1 
 
