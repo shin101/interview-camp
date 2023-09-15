@@ -1,9 +1,10 @@
 # Homework Problem 1 (Level: Hard)
+# Leetcode 295 
 # Online Median: Given a stream of integers, find their median. If any integer is added to the stream, you should be able to update the median quickly.
-
 
 # two heaps - large with minheap, small with maxheap
 # heaps should be roughly same size
+# make sure every num small is <= every num in large heap
 
 import heapq
 class MedianFinder: 
@@ -12,14 +13,9 @@ class MedianFinder:
 
     def addNum(self, num):
         pass
-
+        
     def findMedian(self):
         pass
-
-
-
-
-
 
 # test case
 # test on leetcode
@@ -58,3 +54,11 @@ class MedianFinder:
 #             return self.large[0]
 #         return ((-1 * self.small[0] + self.large[0]) / 2)
 
+
+
+# medianFinder = MedianFinder();
+# medianFinder.addNum(1);    # arr = [1]
+# medianFinder.addNum(2);    # arr = [1, 2]
+# medianFinder.findMedian(); # return 1.5 (i.e., (1 + 2) / 2)
+# medianFinder.addNum(3);    # arr[1, 2, 3]
+# medianFinder.findMedian(); # return 2.0
