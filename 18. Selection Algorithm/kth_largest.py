@@ -2,25 +2,41 @@
 # Medium
 
 
+# Use quick select algorithm, which is like quicksort but uses divide-and-conquer
+
 # Given an integer array nums and an integer k, return the kth largest element in the array.
 # Note that it is the kth largest element in the sorted order, not the kth distinct element.
 # Can you solve it without sorting?
 
 # step 1 - find pivot (random num)
-# step 2 - parition around the pivot
+# step 2 - partition around the pivot
 # step 3 - if we found target index return otherwise recurse
 
 
-# def findKthLargest(nums, k ):
-#     pass
-        
+def findKthLargest(nums, k):
+
+    def quickSelect(l,r):
+        pass
+
+
+
 # test case
 
-# print(findKthLargest([3,2,1,5,6,4], 2)) # 5
-# print(findKthLargest([3,2,3,1,2,4,5,5,6], 2)) # 4
+print(findKthLargest([3,2,1,5,6,4], 2)) # 5
+
+# pivot = 4
+# if 3 <= 4 : [4, 2, 1, 5, 6, 3]. pointer = 1
+# [4, 3, 1, 5, 6, 2]
+# 
+
+print(findKthLargest([3,2,3,1,2,4,5,5,6], 4)) # 4
 
 # solution
+# USE HEAPS TO PASS LC TEST CASE
 
+
+
+# SELECT ALGO, BELOW CODE WONT PASS TEST CASES ON LC
 # def findKthLargest(nums, k ):
 #     k = len(nums) - k # index if array was sorted
 
