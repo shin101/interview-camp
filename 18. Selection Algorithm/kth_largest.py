@@ -14,11 +14,8 @@
 
 
 def findKthLargest(nums, k):
-
-    def quickSelect(l,r):
-        pass
-
-
+    pass
+# USE HEAPS  not select algorithm 
 
 # test case
 
