@@ -2,6 +2,8 @@
 
 # Print Graph in Level Order: Given a graph and a node N, print the Graph in order of distance from N. All nodes of distance 1 from N, followed by nodes of distance 2 from N, etc.
 
+# BFS uses queue
+
 # Similar Problem: Print a tree in level order.
 
 import collections
@@ -40,3 +42,4 @@ root.left.right = Node(5)
 root.right.right = Node(6)
 
 print(level_order_traversal(root))
+
