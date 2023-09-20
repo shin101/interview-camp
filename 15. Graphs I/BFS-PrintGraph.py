@@ -14,24 +14,40 @@ class Node:
         self.right = right
         self.left = left
 
-def level_order_traversal(tree):
-    if not tree: return
-    queue = collections.deque([tree])
-    currCount = 1
-    childrenCount = 0
-    while len(queue)!=0: 
-        curr = queue.popleft()
-        currCount-=1
-        print(curr.val, end=" ")
-        if curr.left:
-            queue.append(curr.left)
-            childrenCount+=1
-        if curr.right:
-            queue.append(curr.right)
-            childrenCount+=1
-        if currCount == 0:
-            print()
-            currCount, childrenCount = childrenCount, currCount
+# def level_order_traversal(tree):
+#     if not tree: return
+#     queue = collections.deque([tree])
+#     currCount = 1
+#     childrenCount = 0
+#     while len(queue)!=0: 
+#         curr = queue.popleft()
+#         currCount-=1
+#         print(curr.val, end=" ")
+#         if curr.left:
+#             queue.append(curr.left)
+#             childrenCount+=1
+#         if curr.right:
+#             queue.append(curr.right)
+#             childrenCount+=1
+#         if currCount == 0:
+#             print()
+#             currCount, childrenCount = childrenCount, currCount
+
+def levelOrder(root) -> List[List[int]]:
+    list1=[]
+    q=deque([root])
+
+    while q:
+        level=[]
+        for i in range(len(q)):
+            poping=q.popleft()
+            if poping:
+                level.append(poping.val)
+                q.append(poping.left)
+                q.append(poping.right)
+        if level:
+            list1.append(level)
+    return list1
 
 
 root = Node(1)

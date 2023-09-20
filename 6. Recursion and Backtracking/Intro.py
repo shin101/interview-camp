@@ -1,6 +1,9 @@
 
 # Power Function: Implement a function to calculate x^n. Both x and n can be positive/negative and overflow doesn't happen. Try doing it in O(log(n)) time.
 
+
+# recursion, divide and conquer
+
 def power_func(base, power):
     if power == 0:
         return 1
