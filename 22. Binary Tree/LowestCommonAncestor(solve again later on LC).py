@@ -16,20 +16,19 @@ class TreeNode:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.answer = None
+        if not root:
+            return None
 
-        def dfs(node):
-            if not node:
-                return False
-            left = dfs(node.left)
-            right = dfs(node.right)
-            cur = node ==p or node ==q 
-            if (left and right) or (cur and right) or (cur and left):
-                self.answer = node
-                return
-            return left or right or cur
-        dfs(root)
-        return self.answer
+        if root == p or root == q:
+            return root
+        
+        l = self.lowestCommonAncestor(root.left, p, q)
+        r = self.lowestCommonAncestor(root.right, p, q)
+
+        if l and r :
+            return root
+        else:
+            return l or r 
             
 # Test Case
 
