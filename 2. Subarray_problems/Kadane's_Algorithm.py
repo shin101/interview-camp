@@ -1,15 +1,30 @@
-# Given an array of integers that can be both +ve and -ve, find the contiguous subarraywith the largest sum.
+# Given an array of integers that can be both +ve and -ve, find the contiguous subarray with the largest sum.
 # For example:  [1,2,-1,2,-3,2,-5]  -> first 4 elements have the largest sum. Return (0,3)
 
 
-def maximumSumSubarray(lst):
-    curr = lst[0]
-    max_sum = lst[0]
 
-    for num in lst[1:]: 
-        curr = max(num, curr+num)
-        max_sum =  max(max_sum, curr)
-    return max_sum
+# Kadane's algo, fast
+
+# class Solution:
+#     def maxSubArray(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         maximumSum, currSumSubarray = float('-inf'), 0
+#         for i in range(n):
+#             currSumSubarray += nums[i]
+#             maximumSum = max(maximumSum, currSumSubarray)
+#             currSumSubarray = max(currSumSubarray, 0)
+#         return maximumSum
+
+# Slow solution
+
+# def maximumSumSubarray(lst):
+#     curr = lst[0]
+#     max_sum = lst[0]
+
+#     for num in lst[1:]: 
+#         curr = max(num, curr+num)
+#         max_sum =  max(max_sum, curr)
+#     return max_sum
     
 # curr = max(2, -1) now curr is 2
 # max_sum = max(3) # now max_sum is 3
