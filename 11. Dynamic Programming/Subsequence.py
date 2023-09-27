@@ -25,7 +25,6 @@ class Solution:
         
         return max(LIS)
     
-
 # test case
 sol = Solution()
 print(sol.lengthOfLIS([10,9,2,5,3,7,101,18])) # 4 
